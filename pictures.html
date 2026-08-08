@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Pictures | Villa Sol y Viento</title>
+<meta name="description" content="Browse the full photo gallery of Villa Sol y Viento — exterior, pool, jacuzzi, garden, living areas, bedrooms, bathrooms and floor plans."/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html" aria-label="Villa Sol y Viento — Home">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12h2.6M18.9 12h2.6M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg></span>
+      <span class="brand-text">Villa Sol y Viento</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About the villa</a>
+      <a class="active" href="pictures.html">Pictures</a>
+      <a class="nav-cta" href="book.html">Book here</a>
+      <div class="lang-switch" aria-label="Language">
+        <a class="active" href="pictures.html">EN</a>
+        <a href="nl/pictures.html">NL</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Gallery</p>
+      <h1>Pictures</h1>
+      <p class="subtext">A full look inside and outside the villa — the pool, the views, and every space in between. Filter by category, or click any photo to browse it full-screen.</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="filter-bar" role="tablist" aria-label="Filter photos by category">
+        <button type="button" class="filter-btn active" data-filter="all" aria-selected="true">All</button>
+        <button type="button" class="filter-btn" data-filter="exterior" aria-selected="false">Exterior &amp; views</button>
+        <button type="button" class="filter-btn" data-filter="pool" aria-selected="false">Pool &amp; terrace</button>
+        <button type="button" class="filter-btn" data-filter="jacuzzi" aria-selected="false">Jacuzzi</button>
+        <button type="button" class="filter-btn" data-filter="garden" aria-selected="false">Garden &amp; games</button>
+        <button type="button" class="filter-btn" data-filter="living" aria-selected="false">Living &amp; kitchens</button>
+        <button type="button" class="filter-btn" data-filter="bedrooms" aria-selected="false">Bedrooms</button>
+        <button type="button" class="filter-btn" data-filter="bathrooms" aria-selected="false">Bathrooms</button>
+        <button type="button" class="filter-btn" data-filter="floorplans" aria-selected="false">Floor plans</button>
+      </div>
+
+      <div class="gallery big">
+
+        <figure class="tile js-zoom" data-category="exterior"><img src="images/exterior/ext-facade-pool-jacuzzi.jpg" alt="Facade, pool and jacuzzi" loading="lazy"><span class="tile-label">Facade, pool &amp; jacuzzi</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="images/exterior/ext-aerial-golden-hour-1.jpg" alt="Aerial view of the villa" loading="lazy"><span class="tile-label">Aerial view</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="images/exterior/ext-aerial-topdown-terrace.jpg" alt="Aerial view of the pool terrace" loading="lazy"><span class="tile-label">Aerial view, pool terrace</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="images/exterior/ext-facade-detail.jpg" alt="Villa facade detail" loading="lazy"><span class="tile-label">Facade detail</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="images/exterior/ext-terrace-view.jpg" alt="Terrace with coastal view" loading="lazy"><span class="tile-label">Terrace, coastal view</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="images/exterior/terrace-archway.jpg" alt="Covered terrace dining area" loading="lazy"><span class="tile-label">Covered terrace dining</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="images/exterior/ext-aerial-garden-side.jpg" alt="Aerial view of the garden side of the villa" loading="lazy"><span class="tile-label">Aerial view, garden side</span></figure>
+
+        <figure class="tile js-zoom" data-category="pool"><img src="images/pool/pool-facade.jpg" alt="Pool alongside the villa" loading="lazy"><span class="tile-label">Pool alongside the villa</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="images/pool/pool-long-view.jpg" alt="Heated pool and terrace" loading="lazy"><span class="tile-label">Heated pool &amp; terrace</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="images/pool/pool-close.jpg" alt="Close view of the pool" loading="lazy"><span class="tile-label">Pool, close view</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="images/pool/pool-steps.jpg" alt="Pool entry steps" loading="lazy"><span class="tile-label">Pool entry steps</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="images/pool/ext-terrace-bbq.jpg" alt="Covered terrace with BBQ" loading="lazy"><span class="tile-label">Covered terrace, BBQ</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="images/pool/ext-terrace-pool-view.jpg" alt="Terrace with pool and mountain view" loading="lazy"><span class="tile-label">Terrace, pool &amp; mountain view</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="images/pool/ext-living-terrace.jpg" alt="Living room opening onto the terrace" loading="lazy"><span class="tile-label">Living room, terrace access</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="images/pool/pool-loungers-view.jpg" alt="Terrace loungers with coastal view" loading="lazy"><span class="tile-label">Loungers, coastal view</span></figure>
+
+        <figure class="tile js-zoom" data-category="jacuzzi"><img src="images/jacuzzi/jacuzzi-view.jpg" alt="Jacuzzi with sea and mountain view" loading="lazy"><span class="tile-label">Jacuzzi, sea &amp; mountain view</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="images/garden/garden-picnic-table.jpg" alt="Garden picnic table" loading="lazy"><span class="tile-label">Garden picnic table</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="images/garden/garden-treehouse-tire-swing.jpg" alt="Treehouse with tyre swing" loading="lazy"><span class="tile-label">Treehouse with tyre swing</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="images/garden/garden-treehouse-slide.jpg" alt="Treehouse with swing set" loading="lazy"><span class="tile-label">Treehouse with swing set</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="images/garden/garden-aerial-view.jpg" alt="Aerial view of the garden" loading="lazy"><span class="tile-label">Aerial view, garden</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="images/garden/garden-house-view.jpg" alt="View of the villa from the garden" loading="lazy"><span class="tile-label">Villa, from the garden</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="images/garden/garden-path-facade.jpg" alt="Garden path along the facade" loading="lazy"><span class="tile-label">Garden path</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="images/garden/games-pool-table.jpg" alt="Pool table" loading="lazy"><span class="tile-label">Pool table</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="images/garden/games-table-football.jpg" alt="Table football" loading="lazy"><span class="tile-label">Table football</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="images/garden/games-board-games.jpg" alt="Board games" loading="lazy"><span class="tile-label">Board games</span></figure>
+
+        <figure class="tile js-zoom" data-category="living"><img src="images/living/kitchen-1.jpg" alt="Fitted kitchen" loading="lazy"><span class="tile-label">Kitchen</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="images/living/kitchen-dining-1.jpg" alt="Open-plan kitchen and dining area" loading="lazy"><span class="tile-label">Kitchen &amp; dining</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="images/living/living-room-2.jpg" alt="Living room with garden view" loading="lazy"><span class="tile-label">Living room, garden view</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="images/living/kitchen-3.jpg" alt="Studio kitchen" loading="lazy"><span class="tile-label">Studio kitchen</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="images/living/living-dining-sea-view.jpg" alt="Living and dining area with sea view" loading="lazy"><span class="tile-label">Living &amp; dining, sea view</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="images/living/kitchen-2.jpg" alt="Kitchen and dining area" loading="lazy"><span class="tile-label">Kitchen &amp; dining</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="images/living/living-dining-3.jpg" alt="Dining area with pool view" loading="lazy"><span class="tile-label">Dining, pool view</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="images/living/living-room-1.jpg" alt="Living room" loading="lazy"><span class="tile-label">Living room</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="images/living/living-room-3.jpg" alt="Living room with mountain view" loading="lazy"><span class="tile-label">Living room, mountain view</span></figure>
+
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="images/bedrooms/bedroom-studio.jpg" alt="Studio bedroom with kitchenette" loading="lazy"><span class="tile-label">Studio with kitchenette</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="images/bedrooms/bedroom-art-1.jpg" alt="Bedroom with garden view" loading="lazy"><span class="tile-label">Bedroom, garden view</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="images/bedrooms/bedroom-teal-2.jpg" alt="Bedroom with garden view" loading="lazy"><span class="tile-label">Bedroom, garden view</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="images/bedrooms/bedroom-teal-twin.jpg" alt="Twin bedroom" loading="lazy"><span class="tile-label">Twin bedroom</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="images/bedrooms/bedroom-teal-3.jpg" alt="Bedroom with mirror and armchair" loading="lazy"><span class="tile-label">Bedroom</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="images/bedrooms/bedroom-teal-doors.jpg" alt="Bedroom with private balcony doors" loading="lazy"><span class="tile-label">Bedroom, balcony doors</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="images/bedrooms/bedroom-palm-view.jpg" alt="Bedroom with palm and garden view" loading="lazy"><span class="tile-label">Bedroom, palm view</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="images/bedrooms/bedroom-pink-view.jpg" alt="Bedroom with mountain view" loading="lazy"><span class="tile-label">Bedroom, mountain view</span></figure>
+
+        <figure class="tile js-zoom" data-category="bathrooms"><img src="images/bathrooms/bathroom-1.jpg" alt="Bathroom with bathtub and sea view" loading="lazy"><span class="tile-label">Bathtub with sea view</span></figure>
+        <figure class="tile js-zoom" data-category="bathrooms"><img src="images/bathrooms/bathroom-2.jpg" alt="Bathroom with mountain view" loading="lazy"><span class="tile-label">Bathroom, mountain view</span></figure>
+        <figure class="tile js-zoom" data-category="bathrooms"><img src="images/bathrooms/bathroom-3.jpg" alt="Bathroom with dark tiling" loading="lazy"><span class="tile-label">Bathroom, dark tiling</span></figure>
+        <figure class="tile js-zoom" data-category="bathrooms"><img src="images/bathrooms/bathroom-4.jpg" alt="Bathroom with glass walk-in shower" loading="lazy"><span class="tile-label">Walk-in shower</span></figure>
+        <figure class="tile js-zoom" data-category="bathrooms"><img src="images/bathrooms/bathroom-5.jpg" alt="Bathroom with vanity mirror" loading="lazy"><span class="tile-label">Bathroom vanity</span></figure>
+
+        <figure class="tile js-zoom" data-category="floorplans"><img src="images/floorplans/floorplan-top-floor.jpg" alt="Floor plan of the top floor" loading="lazy"><span class="tile-label">Floor plan — top floor</span></figure>
+        <figure class="tile js-zoom" data-category="floorplans"><img src="images/floorplans/floorplan-ground-floor.jpg" alt="Floor plan of the ground floor" loading="lazy"><span class="tile-label">Floor plan — ground floor</span></figure>
+        <figure class="tile js-zoom" data-category="floorplans"><img src="images/floorplans/floorplan-lower-level.jpg" alt="Floor plan of the lower level" loading="lazy"><span class="tile-label">Floor plan — lower level</span></figure>
+
+      </div>
+
+      <div class="inline-actions">
+        <a class="button primary" href="book.html">Book here</a>
+        <a class="button ghost" href="about.html">About the villa</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span class="year"></span> Villa Sol y Viento · Mijas, Costa del Sol</p>
+    <div class="footer-links">
+      <a href="mailto:info@beyondrealestate.es">info@beyondrealestate.es</a>
+      <a href="https://wa.me/31634445441" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

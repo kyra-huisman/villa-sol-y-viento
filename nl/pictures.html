@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Foto's | Villa Sol y Viento</title>
+<meta name="description" content="Bekijk de volledige fotogalerij van Villa Sol y Viento — buitenkant, zwembad, jacuzzi, tuin, woonruimtes, slaapkamers, badkamers en plattegronden."/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css"/>
+</head>
+<body>
+<a class="skip" href="#main">Direct naar inhoud</a>
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="index.html" aria-label="Villa Sol y Viento — Home">
+      <span class="brand-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M2.5 12h2.6M18.9 12h2.6M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg></span>
+      <span class="brand-text">Villa Sol y Viento</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Menu openen" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="index.html">Home</a>
+      <a href="about.html">Over de villa</a>
+      <a class="active" href="pictures.html">Foto's</a>
+      <a class="nav-cta" href="book.html">Boek hier</a>
+      <div class="lang-switch" aria-label="Taal">
+        <a href="../pictures.html">EN</a>
+        <a class="active" href="pictures.html">NL</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Galerij</p>
+      <h1>Foto's</h1>
+      <p class="subtext">Een compleet beeld van binnen en buiten de villa — het zwembad, het uitzicht en elke ruimte ertussenin. Filter op categorie, of klik op een foto om deze op volledig scherm te bekijken.</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="container">
+      <div class="filter-bar" role="tablist" aria-label="Filter foto's op categorie">
+        <button type="button" class="filter-btn active" data-filter="all" aria-selected="true">Alles</button>
+        <button type="button" class="filter-btn" data-filter="exterior" aria-selected="false">Buiten &amp; uitzicht</button>
+        <button type="button" class="filter-btn" data-filter="pool" aria-selected="false">Zwembad &amp; terras</button>
+        <button type="button" class="filter-btn" data-filter="jacuzzi" aria-selected="false">Jacuzzi</button>
+        <button type="button" class="filter-btn" data-filter="garden" aria-selected="false">Tuin &amp; spelletjes</button>
+        <button type="button" class="filter-btn" data-filter="living" aria-selected="false">Woonruimtes &amp; keukens</button>
+        <button type="button" class="filter-btn" data-filter="bedrooms" aria-selected="false">Slaapkamers</button>
+        <button type="button" class="filter-btn" data-filter="bathrooms" aria-selected="false">Badkamers</button>
+        <button type="button" class="filter-btn" data-filter="floorplans" aria-selected="false">Plattegronden</button>
+      </div>
+
+      <div class="gallery big">
+
+        <figure class="tile js-zoom" data-category="exterior"><img src="../images/exterior/ext-facade-pool-jacuzzi.jpg" alt="Gevel, zwembad en jacuzzi" loading="lazy"><span class="tile-label">Gevel, zwembad &amp; jacuzzi</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="../images/exterior/ext-aerial-golden-hour-1.jpg" alt="Luchtfoto van de villa" loading="lazy"><span class="tile-label">Luchtfoto</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="../images/exterior/ext-aerial-topdown-terrace.jpg" alt="Luchtfoto van het zwembadterras" loading="lazy"><span class="tile-label">Luchtfoto, zwembadterras</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="../images/exterior/ext-facade-detail.jpg" alt="Gedetailleerd zicht op de gevel" loading="lazy"><span class="tile-label">Gevel in detail</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="../images/exterior/ext-terrace-view.jpg" alt="Terras met kustzicht" loading="lazy"><span class="tile-label">Terras, kustzicht</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="../images/exterior/terrace-archway.jpg" alt="Overdekt terras met eettafel" loading="lazy"><span class="tile-label">Overdekt terras</span></figure>
+        <figure class="tile js-zoom" data-category="exterior"><img src="../images/exterior/ext-aerial-garden-side.jpg" alt="Luchtfoto van de tuinzijde van de villa" loading="lazy"><span class="tile-label">Luchtfoto, tuinzijde</span></figure>
+
+        <figure class="tile js-zoom" data-category="pool"><img src="../images/pool/pool-facade.jpg" alt="Zwembad naast de villa" loading="lazy"><span class="tile-label">Zwembad naast de villa</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="../images/pool/pool-long-view.jpg" alt="Verwarmd zwembad en terras" loading="lazy"><span class="tile-label">Verwarmd zwembad &amp; terras</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="../images/pool/pool-close.jpg" alt="Close-up van het zwembad" loading="lazy"><span class="tile-label">Zwembad, close-up</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="../images/pool/pool-steps.jpg" alt="Trap naar het zwembad" loading="lazy"><span class="tile-label">Trap naar het zwembad</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="../images/pool/ext-terrace-bbq.jpg" alt="Overdekt terras met BBQ" loading="lazy"><span class="tile-label">Overdekt terras, BBQ</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="../images/pool/ext-terrace-pool-view.jpg" alt="Terras met zwembad en bergzicht" loading="lazy"><span class="tile-label">Terras, zwembad &amp; bergzicht</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="../images/pool/ext-living-terrace.jpg" alt="Woonkamer met toegang tot het terras" loading="lazy"><span class="tile-label">Woonkamer, terrastoegang</span></figure>
+        <figure class="tile js-zoom" data-category="pool"><img src="../images/pool/pool-loungers-view.jpg" alt="Ligbedden op het terras met kustzicht" loading="lazy"><span class="tile-label">Ligbedden, kustzicht</span></figure>
+
+        <figure class="tile js-zoom" data-category="jacuzzi"><img src="../images/jacuzzi/jacuzzi-view.jpg" alt="Jacuzzi met zee- en bergzicht" loading="lazy"><span class="tile-label">Jacuzzi, zee- &amp; bergzicht</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="../images/garden/garden-picnic-table.jpg" alt="Picknicktafel in de tuin" loading="lazy"><span class="tile-label">Picknicktafel</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="../images/garden/garden-treehouse-tire-swing.jpg" alt="Boomhut met bandenschommel" loading="lazy"><span class="tile-label">Boomhut met bandenschommel</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="../images/garden/garden-treehouse-slide.jpg" alt="Boomhut met schommelset" loading="lazy"><span class="tile-label">Boomhut met schommelset</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="../images/garden/garden-aerial-view.jpg" alt="Luchtfoto van de tuin" loading="lazy"><span class="tile-label">Luchtfoto, tuin</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="../images/garden/garden-house-view.jpg" alt="Zicht op de villa vanuit de tuin" loading="lazy"><span class="tile-label">Villa, vanuit de tuin</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="../images/garden/garden-path-facade.jpg" alt="Tuinpad langs de gevel" loading="lazy"><span class="tile-label">Tuinpad</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="../images/garden/games-pool-table.jpg" alt="Pooltafel" loading="lazy"><span class="tile-label">Pooltafel</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="../images/garden/games-table-football.jpg" alt="Tafelvoetbal" loading="lazy"><span class="tile-label">Tafelvoetbal</span></figure>
+        <figure class="tile js-zoom" data-category="garden"><img src="../images/garden/games-board-games.jpg" alt="Gezelschapsspellen" loading="lazy"><span class="tile-label">Gezelschapsspellen</span></figure>
+
+        <figure class="tile js-zoom" data-category="living"><img src="../images/living/kitchen-1.jpg" alt="Ingerichte keuken" loading="lazy"><span class="tile-label">Keuken</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="../images/living/kitchen-dining-1.jpg" alt="Open keuken en eetruimte" loading="lazy"><span class="tile-label">Keuken &amp; eetruimte</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="../images/living/living-room-2.jpg" alt="Woonkamer met tuinzicht" loading="lazy"><span class="tile-label">Woonkamer, tuinzicht</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="../images/living/kitchen-3.jpg" alt="Studiokeuken" loading="lazy"><span class="tile-label">Studiokeuken</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="../images/living/living-dining-sea-view.jpg" alt="Woon- en eetruimte met zeezicht" loading="lazy"><span class="tile-label">Woon- &amp; eetruimte, zeezicht</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="../images/living/kitchen-2.jpg" alt="Keuken en eetruimte" loading="lazy"><span class="tile-label">Keuken &amp; eetruimte</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="../images/living/living-dining-3.jpg" alt="Eetruimte met zwembadzicht" loading="lazy"><span class="tile-label">Eetruimte, zwembadzicht</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="../images/living/living-room-1.jpg" alt="Woonkamer" loading="lazy"><span class="tile-label">Woonkamer</span></figure>
+        <figure class="tile js-zoom" data-category="living"><img src="../images/living/living-room-3.jpg" alt="Woonkamer met bergzicht" loading="lazy"><span class="tile-label">Woonkamer, bergzicht</span></figure>
+
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="../images/bedrooms/bedroom-studio.jpg" alt="Studio-slaapkamer met kitchenette" loading="lazy"><span class="tile-label">Studio met kitchenette</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="../images/bedrooms/bedroom-art-1.jpg" alt="Slaapkamer met tuinzicht" loading="lazy"><span class="tile-label">Slaapkamer, tuinzicht</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="../images/bedrooms/bedroom-teal-2.jpg" alt="Slaapkamer met tuinzicht" loading="lazy"><span class="tile-label">Slaapkamer, tuinzicht</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="../images/bedrooms/bedroom-teal-twin.jpg" alt="Tweepersoons slaapkamer" loading="lazy"><span class="tile-label">Tweepersoonskamer</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="../images/bedrooms/bedroom-teal-3.jpg" alt="Slaapkamer met spiegel en fauteuil" loading="lazy"><span class="tile-label">Slaapkamer</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="../images/bedrooms/bedroom-teal-doors.jpg" alt="Slaapkamer met deuren naar eigen balkon" loading="lazy"><span class="tile-label">Slaapkamer, balkondeuren</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="../images/bedrooms/bedroom-palm-view.jpg" alt="Slaapkamer met palm- en tuinzicht" loading="lazy"><span class="tile-label">Slaapkamer, palmzicht</span></figure>
+        <figure class="tile js-zoom" data-category="bedrooms"><img src="../images/bedrooms/bedroom-pink-view.jpg" alt="Slaapkamer met bergzicht" loading="lazy"><span class="tile-label">Slaapkamer, bergzicht</span></figure>
+
+        <figure class="tile js-zoom" data-category="bathrooms"><img src="../images/bathrooms/bathroom-1.jpg" alt="Badkamer met ligbad en zeezicht" loading="lazy"><span class="tile-label">Ligbad met zeezicht</span></figure>
+        <figure class="tile js-zoom" data-category="bathrooms"><img src="../images/bathrooms/bathroom-2.jpg" alt="Badkamer met bergzicht" loading="lazy"><span class="tile-label">Badkamer, bergzicht</span></figure>
+        <figure class="tile js-zoom" data-category="bathrooms"><img src="../images/bathrooms/bathroom-3.jpg" alt="Badkamer met donkere tegels" loading="lazy"><span class="tile-label">Badkamer, donkere tegels</span></figure>
+        <figure class="tile js-zoom" data-category="bathrooms"><img src="../images/bathrooms/bathroom-4.jpg" alt="Badkamer met glazen inloopdouche" loading="lazy"><span class="tile-label">Inloopdouche</span></figure>
+        <figure class="tile js-zoom" data-category="bathrooms"><img src="../images/bathrooms/bathroom-5.jpg" alt="Badkamer met wastafelspiegel" loading="lazy"><span class="tile-label">Badkamer</span></figure>
+
+        <figure class="tile js-zoom" data-category="floorplans"><img src="../images/floorplans/floorplan-top-floor.jpg" alt="Plattegrond van de bovenverdieping" loading="lazy"><span class="tile-label">Plattegrond — bovenverdieping</span></figure>
+        <figure class="tile js-zoom" data-category="floorplans"><img src="../images/floorplans/floorplan-ground-floor.jpg" alt="Plattegrond van de begane grond" loading="lazy"><span class="tile-label">Plattegrond — begane grond</span></figure>
+        <figure class="tile js-zoom" data-category="floorplans"><img src="../images/floorplans/floorplan-lower-level.jpg" alt="Plattegrond van de onderste verdieping" loading="lazy"><span class="tile-label">Plattegrond — onderste verdieping</span></figure>
+
+      </div>
+
+      <div class="inline-actions">
+        <a class="button primary" href="book.html">Boek hier</a>
+        <a class="button ghost" href="about.html">Over de villa</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <p>© <span class="year"></span> Villa Sol y Viento · Mijas, Costa del Sol</p>
+    <div class="footer-links">
+      <a href="mailto:info@beyondrealestate.es">info@beyondrealestate.es</a>
+      <a href="https://wa.me/31634445441" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../script.js"></script>
+</body>
+</html>
