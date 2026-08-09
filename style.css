@@ -742,7 +742,7 @@ p:last-child{ margin-bottom: 0; }
 }
 .lightbox img{
   max-width: min(1200px, 92vw);
-  max-height: 76vh;
+  max-height: 82vh;
   border-radius: 10px;
   box-shadow: 0 30px 80px rgba(0,0,0,0.5);
 }
@@ -750,40 +750,13 @@ p:last-child{ margin-bottom: 0; }
   display:flex;
   align-items:center;
   justify-content:center;
-  gap: 10px 20px;
-  flex-wrap: wrap;
   flex: 0 0 auto;
 }
 .lb-caption{
   color: rgba(255,255,255,0.82);
   font-size: 0.9rem;
+  text-align:center;
 }
-.lb-download{
-  display:inline-flex;
-  align-items:center;
-  gap: 9px;
-  padding: 9px 17px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.11);
-  border: 1px solid rgba(255,255,255,0.28);
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.85rem;
-  font-weight: 600;
-  white-space: nowrap;
-  transition: background .15s ease, border-color .15s ease;
-}
-.lb-download:hover{
-  background: rgba(255,255,255,0.22);
-  border-color: rgba(255,255,255,0.5);
-}
-.lb-download svg{ width: 16px; height: 16px; flex: 0 0 auto; }
-.lb-download-size{
-  font-weight: 500;
-  opacity: 0.62;
-  font-variant-numeric: tabular-nums;
-}
-.lb-download-size:empty{ display:none; }
 .lb-btn{
   position:absolute;
   display:grid; place-items:center;

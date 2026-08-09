@@ -76,10 +76,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var isDutch = (document.documentElement.lang || "").toLowerCase().indexOf("nl") === 0;
     var t9n = isDutch
-      ? { close: "Sluiten", prev: "Vorige foto", next: "Volgende foto",
-          download: "Download in hoge resolutie", loading: "Laden…" }
-      : { close: "Close", prev: "Previous photo", next: "Next photo",
-          download: "Download high resolution", loading: "Loading…" };
+      ? { close: "Sluiten", prev: "Vorige foto", next: "Volgende foto" }
+      : { close: "Close", prev: "Previous photo", next: "Next photo" };
 
     var lb = document.createElement("div");
     lb.className = "lightbox";
@@ -93,21 +91,11 @@ document.addEventListener("DOMContentLoaded", function () {
       '<button type="button" class="lb-btn lb-next" aria-label="' + t9n.next + '">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>' +
       '<div class="lb-stage"><img alt=""></div>' +
-      '<div class="lb-bar">' +
-        '<span class="lb-caption"></span>' +
-        '<a class="lb-download" download>' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' +
-          '<path d="M12 3.5v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4.5 19.5h15"/></svg>' +
-          '<span class="lb-download-label">' + t9n.download + '</span>' +
-          '<span class="lb-download-size"></span>' +
-        '</a>' +
-      '</div>';
+      '<div class="lb-bar"><span class="lb-caption"></span></div>';
     document.body.appendChild(lb);
 
     var lbImg = lb.querySelector("img");
     var lbCaption = lb.querySelector(".lb-caption");
-    var lbDownload = lb.querySelector(".lb-download");
-    var lbSize = lb.querySelector(".lb-download-size");
     var activeList = [];
     var activeIndex = 0;
 
@@ -115,29 +103,17 @@ document.addEventListener("DOMContentLoaded", function () {
       return el.offsetParent !== null;
     }
 
-    // Toont de afmetingen van het origineel zodra de foto geladen is
-    lbImg.addEventListener("load", function () {
-      if (lbImg.naturalWidth) {
-        lbSize.textContent = lbImg.naturalWidth + " × " + lbImg.naturalHeight;
-      }
-    });
-
     function render() {
       var t = activeList[activeIndex];
       var img = t.querySelector("img");
+      // data-full verwijst naar het origineel op volledige resolutie;
+      // het raster toont alleen de kleine versie uit images/thumbs/
       var full = t.getAttribute("data-full") || img.src;
       var caption = t.getAttribute("data-caption") || img.alt || "";
 
-      lbSize.textContent = "";
       lbImg.src = full;
       lbImg.alt = caption;
       lbCaption.textContent = caption;
-
-      lbDownload.href = full;
-      // Nette bestandsnaam bij het downloaden
-      var base = full.split("/").pop().replace(/\.[^.]+$/, "");
-      lbDownload.setAttribute("download", "villa-sol-y-viento-" + base + ".jpg");
-      lbDownload.setAttribute("aria-label", t9n.download + " — " + caption);
     }
 
     function openAt(trigger) {
