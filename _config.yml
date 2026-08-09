@@ -1,0 +1,25 @@
+# GitHub Pages / Jekyll configuratie
+#
+# Deze site bestaat uit gewone HTML — Jekyll kopieert die ongewijzigd door.
+# Het enige doel van dit bestand is bepalen wat er NIET gepubliceerd wordt.
+#
+# Alles hieronder blijft gewoon in de Git-repo staan (versiebeheer, en het
+# reist mee met het project), maar wordt niet naar de webserver gekopieerd.
+# Zonder deze lijst zou bijvoorbeeld villasolyviento.com/CLAUDE.md publiek
+# leesbaar zijn, en zouden de PowerShell-scripts in tools/ te downloaden zijn.
+
+exclude:
+  - CLAUDE.md          # projectinstructies voor Claude — niet voor bezoekers
+  - README.md
+  - tools/             # onderhoudsscripts (PowerShell)
+  - .gitignore
+  # Jekyll-standaarden, hier herhaald omdat 'exclude' de defaults vervangt
+  - Gemfile
+  - Gemfile.lock
+  - gemfiles/
+  - node_modules/
+  - vendor/
+
+# Geen Jekyll-thema of plugins nodig: de site is handgeschreven HTML.
+theme:
+plugins: []

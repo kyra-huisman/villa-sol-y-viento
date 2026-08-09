@@ -409,6 +409,91 @@ p:last-child{ margin-bottom: 0; }
 .highlight h3{ margin: 0 0 4px; font-size: 1rem; }
 .highlight p{ margin:0; font-size: 0.92rem; color: var(--muted); }
 
+/* Reviews */
+.review-summary{
+  display:flex;
+  align-items:center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--line);
+}
+.review-score{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap: 3px;
+}
+.review-score strong{
+  font-family: var(--serif);
+  font-size: 3rem;
+  font-weight: 600;
+  line-height: 1;
+}
+.review-stars{ display:flex; gap: 2px; color: var(--accent-dark); }
+.review-stars svg{ width: 15px; height: 15px; }
+.review-score span{ color: var(--muted); font-size: 0.88rem; }
+
+.review-badge{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  padding: 12px 20px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow-sm);
+}
+.review-badge .icon{
+  width: 40px; height:40px;
+  flex: 0 0 auto;
+  display:grid; place-items:center;
+  border-radius: 50%;
+  background: var(--accent-soft);
+}
+.review-badge svg{ width:19px; height:19px; color: var(--accent-dark); }
+.review-badge strong{ display:block; font-size: 0.98rem; }
+.review-badge span{ font-size: 0.85rem; color: var(--muted); }
+
+.review-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.review-item{
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.review-item-head{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.review-item-head .icon{
+  width: 34px; height:34px;
+  flex: 0 0 auto;
+  display:grid; place-items:center;
+  border-radius: 10px;
+  background: var(--surface-2);
+}
+.review-item-head svg{ width:16px; height:16px; color: var(--accent2-dark); }
+.review-item-head h3{ margin:0; font-size: 0.96rem; flex:1; }
+.review-item-head .score{ font-family: var(--serif); font-weight:600; font-size:1.05rem; flex: 0 0 auto; }
+.review-item p{ margin:0; font-size: 0.88rem; color: var(--muted); }
+
+@media (max-width: 860px){
+  .review-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px){
+  .review-grid{ grid-template-columns: 1fr; }
+  .review-summary{ flex-direction:column; align-items:flex-start; gap: 16px; }
+}
+
 /* Buttons */
 .button{
   display:inline-flex;
@@ -598,6 +683,9 @@ p:last-child{ margin-bottom: 0; }
 .gallery.preview{ grid-template-columns: repeat(4, 1fr); }
 .tile{
   position:relative;
+  /* De tegels zijn <figure>-elementen; browsers geven die standaard
+     margin: 1em 40px, waardoor ze hun rastercel niet vullen. */
+  margin: 0;
   border-radius: var(--radius);
   overflow:hidden;
   border: 1px solid var(--line);
@@ -638,23 +726,64 @@ p:last-child{ margin-bottom: 0; }
   display:none;
   align-items:center;
   justify-content:center;
-  background: rgba(20,18,16,0.92);
+  background: rgba(20,18,16,0.965);
   padding: 24px;
 }
-.lightbox.open{ display:flex; }
+.lightbox.open{
+  display:flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.lb-stage{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height: 0;
+}
 .lightbox img{
   max-width: min(1200px, 92vw);
-  max-height: 84vh;
+  max-height: 76vh;
   border-radius: 10px;
   box-shadow: 0 30px 80px rgba(0,0,0,0.5);
 }
-.lightbox .lb-caption{
-  position:absolute;
-  left:0; right:0; bottom: 22px;
-  text-align:center;
-  color: rgba(255,255,255,0.85);
-  font-size: 0.88rem;
+.lb-bar{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px 20px;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
 }
+.lb-caption{
+  color: rgba(255,255,255,0.82);
+  font-size: 0.9rem;
+}
+.lb-download{
+  display:inline-flex;
+  align-items:center;
+  gap: 9px;
+  padding: 9px 17px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.11);
+  border: 1px solid rgba(255,255,255,0.28);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: background .15s ease, border-color .15s ease;
+}
+.lb-download:hover{
+  background: rgba(255,255,255,0.22);
+  border-color: rgba(255,255,255,0.5);
+}
+.lb-download svg{ width: 16px; height: 16px; flex: 0 0 auto; }
+.lb-download-size{
+  font-weight: 500;
+  opacity: 0.62;
+  font-variant-numeric: tabular-nums;
+}
+.lb-download-size:empty{ display:none; }
 .lb-btn{
   position:absolute;
   display:grid; place-items:center;
@@ -675,6 +804,10 @@ p:last-child{ margin-bottom: 0; }
   .lb-prev{ left: 8px; }
   .lb-next{ right: 8px; }
   .lb-close{ top: 10px; right: 10px; }
+  .lightbox{ padding: 16px; }
+  .lightbox img{ max-height: 66vh; }
+  .lb-bar{ flex-direction: column; gap: 12px; }
+  .lb-caption{ text-align:center; }
 }
 
 /* CTA band */

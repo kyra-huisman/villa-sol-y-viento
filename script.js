@@ -74,23 +74,40 @@ document.addEventListener("DOMContentLoaded", function () {
     var triggers = Array.prototype.slice.call(document.querySelectorAll(".js-zoom"));
     if (!triggers.length) return;
 
+    var isDutch = (document.documentElement.lang || "").toLowerCase().indexOf("nl") === 0;
+    var t9n = isDutch
+      ? { close: "Sluiten", prev: "Vorige foto", next: "Volgende foto",
+          download: "Download in hoge resolutie", loading: "Laden…" }
+      : { close: "Close", prev: "Previous photo", next: "Next photo",
+          download: "Download high resolution", loading: "Loading…" };
+
     var lb = document.createElement("div");
     lb.className = "lightbox";
     lb.setAttribute("role", "dialog");
     lb.setAttribute("aria-modal", "true");
     lb.innerHTML =
-      '<button type="button" class="lb-btn lb-close" aria-label="Close">' +
+      '<button type="button" class="lb-btn lb-close" aria-label="' + t9n.close + '">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
-      '<button type="button" class="lb-btn lb-prev" aria-label="Previous photo">' +
+      '<button type="button" class="lb-btn lb-prev" aria-label="' + t9n.prev + '">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>' +
-      '<button type="button" class="lb-btn lb-next" aria-label="Next photo">' +
+      '<button type="button" class="lb-btn lb-next" aria-label="' + t9n.next + '">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>' +
-      '<img alt="">' +
-      '<div class="lb-caption"></div>';
+      '<div class="lb-stage"><img alt=""></div>' +
+      '<div class="lb-bar">' +
+        '<span class="lb-caption"></span>' +
+        '<a class="lb-download" download>' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">' +
+          '<path d="M12 3.5v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4.5 19.5h15"/></svg>' +
+          '<span class="lb-download-label">' + t9n.download + '</span>' +
+          '<span class="lb-download-size"></span>' +
+        '</a>' +
+      '</div>';
     document.body.appendChild(lb);
 
     var lbImg = lb.querySelector("img");
     var lbCaption = lb.querySelector(".lb-caption");
+    var lbDownload = lb.querySelector(".lb-download");
+    var lbSize = lb.querySelector(".lb-download-size");
     var activeList = [];
     var activeIndex = 0;
 
@@ -98,14 +115,29 @@ document.addEventListener("DOMContentLoaded", function () {
       return el.offsetParent !== null;
     }
 
+    // Toont de afmetingen van het origineel zodra de foto geladen is
+    lbImg.addEventListener("load", function () {
+      if (lbImg.naturalWidth) {
+        lbSize.textContent = lbImg.naturalWidth + " × " + lbImg.naturalHeight;
+      }
+    });
+
     function render() {
       var t = activeList[activeIndex];
       var img = t.querySelector("img");
       var full = t.getAttribute("data-full") || img.src;
       var caption = t.getAttribute("data-caption") || img.alt || "";
+
+      lbSize.textContent = "";
       lbImg.src = full;
       lbImg.alt = caption;
       lbCaption.textContent = caption;
+
+      lbDownload.href = full;
+      // Nette bestandsnaam bij het downloaden
+      var base = full.split("/").pop().replace(/\.[^.]+$/, "");
+      lbDownload.setAttribute("download", "villa-sol-y-viento-" + base + ".jpg");
+      lbDownload.setAttribute("aria-label", t9n.download + " — " + caption);
     }
 
     function openAt(trigger) {
