@@ -535,6 +535,10 @@ p:last-child{ margin-bottom: 0; }
 }
 .text-link:hover{ border-bottom-color: var(--text); }
 
+/* Voor links midden in een lopende alinea: alleen het lijntje eronder,
+   zonder dikgedrukte letters, zodat de tekst rustig blijft lezen. */
+.text-link.plain{ font-weight: inherit; }
+
 .inline-actions{
   display:flex;
   gap: 12px;
