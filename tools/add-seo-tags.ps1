@@ -17,9 +17,9 @@ $endMark   = "<!-- seo:end -->"
 # file => @{ canonical; locale; ogType; imgAlt }
 $pages = @(
   @{ file="index.html";       canonical="/";                  locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden, with palm trees and mountains behind" },
-  @{ file="about.html";       canonical="/about.html";        locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" },
-  @{ file="pictures.html";    canonical="/pictures.html";     locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" },
-  @{ file="book.html";        canonical="/book.html";         locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" }
+  @{ file="about.html";       canonical="/about";             locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" },
+  @{ file="pictures.html";    canonical="/pictures";          locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" },
+  @{ file="book.html";        canonical="/book";              locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" }
 )
 
 foreach ($p in $pages) {

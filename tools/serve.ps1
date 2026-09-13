@@ -43,6 +43,12 @@ try {
       continue
     }
 
+    # Adressen zonder .html afhandelen zoals GitHub Pages dat doet: /about
+    # serveert about.html. Zo test je lokaal precies wat er live gebeurt.
+    if (-not (Test-Path $full -PathType Leaf) -and -not [System.IO.Path]::GetExtension($full)) {
+      if (Test-Path "$full.html" -PathType Leaf) { $full = "$full.html" }
+    }
+
     # Verbindingen niet openhouden: deze server verwerkt één verzoek tegelijk,
     # en wachtende keep-alive-sockets laten de pagina onnodig lang leeg staan.
     $ctx.Response.KeepAlive = $false

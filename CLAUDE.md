@@ -13,8 +13,8 @@ Vraag de gebruiker niet om te controleren wat je zelf kunt zien.
 
 Wat de controle minimaal omvat:
 
-1. **Open de pagina** die je hebt gewijzigd (lokaal via `file:///…`, of de live
-   site als het al gepusht is).
+1. **Open de pagina** die je hebt gewijzigd — lokaal via `tools\serve.ps1`
+   (http://localhost:8080/), of de live site als het al gepusht is.
 2. **Maak een screenshot en kijk ernaar.** Klopt de opmaak? Staat er niets
    overlappend, afgesneden of leeg?
 3. **Test de interactie die je hebt aangeraakt.** Klik de knop, open de
@@ -38,6 +38,16 @@ tools/                                               onderhoudsscripts
 
 De site is **alleen Engels**. De Nederlandse versie (`/nl/`) is verwijderd;
 voeg geen tweede taal toe zonder overleg.
+
+## Adressen zonder .html
+
+Links, canonicals en de sitemap gebruiken de korte vorm: `/`, `/about`,
+`/pictures`, `/book` — nooit `about.html`. GitHub Pages serveert `about.html`
+vanzelf op `/about`; `tools/serve.ps1` doet lokaal hetzelfde, zodat je test wat
+er live gebeurt. Schrijf interne links dus als `href="/about"`.
+
+Gevolg: navigeren werkt niet meer via `file:///…`, want daar bestaat `/about`
+niet. **Bekijk de site lokaal via `tools\serve.ps1`**, niet via file://.
 
 ## Foto's
 
