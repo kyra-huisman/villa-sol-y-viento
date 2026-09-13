@@ -19,10 +19,9 @@ Wat de controle minimaal omvat:
    overlappend, afgesneden of leeg?
 3. **Test de interactie die je hebt aangeraakt.** Klik de knop, open de
    lightbox, gebruik de filtertabs, klap het mobiele menu uit.
-4. **Controleer beide talen** als de wijziging zowel `/` als `/nl/` raakt.
-5. **Controleer mobiel formaat** (ongeveer 390px breed) bij lay-outwijzigingen —
+4. **Controleer mobiel formaat** (ongeveer 390px breed) bij lay-outwijzigingen —
    daar gaat het het snelst mis.
-6. **Lees de console** op fouten met `read_console_messages`.
+5. **Lees de console** op fouten met `read_console_messages`.
 
 Bij twijfel over laadgedrag of paginagewicht: gebruik `read_network_requests`.
 Zo is eerder ontdekt dat de fotopagina 40 MB downloadde.
@@ -30,23 +29,22 @@ Zo is eerder ontdekt dat de fotopagina 40 MB downloadde.
 ## Structuur
 
 ```
-index.html  about.html  pictures.html  book.html     Engels (hoofdversie)
-nl/…                                                 Nederlands (spiegel)
-style.css  script.js                                 gedeeld door beide talen
+index.html  about.html  pictures.html  book.html     de vier pagina's (Engels)
+style.css  script.js                                 gedeeld door alle pagina's
 images/<categorie>/                                  originele foto's (~2200px)
 images/thumbs/<categorie>/                           thumbnails (~700px)
 tools/                                               onderhoudsscripts
 ```
 
-Engels en Nederlands zijn een exacte spiegel. **Wijzig je de ene taal, wijzig
-dan ook de andere** — inclusief `alt`-teksten en bijschriften.
+De site is **alleen Engels**. De Nederlandse versie (`/nl/`) is verwijderd;
+voeg geen tweede taal toe zonder overleg.
 
 ## Foto's
 
 De gebruiker beheert de mappen in `images/<categorie>/` zelf: ze zet er nieuwe
 foto's in, verplaatst ze tussen categorieën en verwijdert ze. Die mappen zijn
 leidend. Als ze vraagt de site bij te werken naar "de foto's zoals ze er nu in
-staan", synchroniseer je `pictures.html` en `nl/pictures.html` daarmee.
+staan", synchroniseer je `pictures.html` daarmee.
 
 - **Verklein of overschrijf niets in `images/<categorie>/` zonder te vragen.**
   Dat zijn de hoogste kwaliteit die er nog is; de lightbox en de downloadknop
@@ -55,7 +53,7 @@ staan", synchroniseer je `pictures.html` en `nl/pictures.html` daarmee.
 - Het raster toont thumbnails uit `images/thumbs/`; de `<figure>` verwijst via
   `data-full` naar het origineel.
 - Geef nieuwe foto's een beschrijvende naam (`pool-steps.jpg`, niet
-  `DSC09927.jpg`) en gebruik dezelfde naam in beide talen.
+  `DSC09927.jpg`).
 
 Na het toevoegen, verplaatsen of verwijderen van foto's:
 

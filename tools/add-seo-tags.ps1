@@ -1,5 +1,5 @@
 <#
-  Voegt canonical-, hreflang-, Open Graph- en Twitter-tags toe aan alle pagina's.
+  Voegt canonical-, Open Graph- en Twitter-tags toe aan alle pagina's.
 
   Idempotent: bestaande blokken worden vervangen, dus opnieuw uitvoeren is veilig.
   Voer dit uit nadat je een pagina hebt toegevoegd of de domeinnaam wijzigt.
@@ -14,16 +14,12 @@ $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 $startMark = "<!-- seo:start -->"
 $endMark   = "<!-- seo:end -->"
 
-# file => @{ canonical; en; nl; locale; ogType; imgAlt }
+# file => @{ canonical; locale; ogType; imgAlt }
 $pages = @(
-  @{ file="index.html";       canonical="/";                  en="/";                  nl="/nl/";                 locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden, with palm trees and mountains behind" },
-  @{ file="about.html";       canonical="/about.html";        en="/about.html";        nl="/nl/about.html";       locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" },
-  @{ file="pictures.html";    canonical="/pictures.html";     en="/pictures.html";     nl="/nl/pictures.html";    locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" },
-  @{ file="book.html";        canonical="/book.html";         en="/book.html";         nl="/nl/book.html";        locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" },
-  @{ file="nl\index.html";    canonical="/nl/";               en="/";                  nl="/nl/";                 locale="nl_NL"; imgAlt="Villa Sol y Viento gezien vanuit de tuin, met palmbomen en bergen erachter" },
-  @{ file="nl\about.html";    canonical="/nl/about.html";     en="/about.html";        nl="/nl/about.html";       locale="nl_NL"; imgAlt="Villa Sol y Viento gezien vanuit de tuin" },
-  @{ file="nl\pictures.html"; canonical="/nl/pictures.html";  en="/pictures.html";     nl="/nl/pictures.html";    locale="nl_NL"; imgAlt="Villa Sol y Viento gezien vanuit de tuin" },
-  @{ file="nl\book.html";     canonical="/nl/book.html";      en="/book.html";         nl="/nl/book.html";        locale="nl_NL"; imgAlt="Villa Sol y Viento gezien vanuit de tuin" }
+  @{ file="index.html";       canonical="/";                  locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden, with palm trees and mountains behind" },
+  @{ file="about.html";       canonical="/about.html";        locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" },
+  @{ file="pictures.html";    canonical="/pictures.html";     locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" },
+  @{ file="book.html";        canonical="/book.html";         locale="en_GB"; imgAlt="Villa Sol y Viento seen from the garden" }
 )
 
 foreach ($p in $pages) {
@@ -45,9 +41,6 @@ foreach ($p in $pages) {
     $sb = New-Object System.Text.StringBuilder
     [void]$sb.AppendLine($startMark)
     [void]$sb.AppendLine("<link rel=""canonical"" href=""$site$($p.canonical)""/>")
-    [void]$sb.AppendLine("<link rel=""alternate"" hreflang=""en"" href=""$site$($p.en)""/>")
-    [void]$sb.AppendLine("<link rel=""alternate"" hreflang=""nl"" href=""$site$($p.nl)""/>")
-    [void]$sb.AppendLine("<link rel=""alternate"" hreflang=""x-default"" href=""$site$($p.en)""/>")
     if (-not $hasOgType)  { [void]$sb.AppendLine("<meta property=""og:type"" content=""website""/>") }
     if (-not $hasOgTitle) { [void]$sb.AppendLine("<meta property=""og:title"" content=""$title""/>") }
     if (-not $hasOgDesc)  { [void]$sb.AppendLine("<meta property=""og:description"" content=""$desc""/>") }

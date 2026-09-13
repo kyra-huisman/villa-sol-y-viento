@@ -4,7 +4,7 @@
   http://-URL willen; file:// werkt niet betrouwbaar.
 
   Gebruik:   powershell -File tools\serve.ps1
-  Daarna:    http://localhost:8080/  en  http://localhost:8080/nl/
+  Daarna:    http://localhost:8080/
   Stoppen:   Ctrl+C, of het venster sluiten
 #>
 

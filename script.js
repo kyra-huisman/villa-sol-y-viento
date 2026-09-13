@@ -74,10 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var triggers = Array.prototype.slice.call(document.querySelectorAll(".js-zoom"));
     if (!triggers.length) return;
 
-    var isDutch = (document.documentElement.lang || "").toLowerCase().indexOf("nl") === 0;
-    var t9n = isDutch
-      ? { close: "Sluiten", prev: "Vorige foto", next: "Volgende foto" }
-      : { close: "Close", prev: "Previous photo", next: "Next photo" };
+    var t9n = { close: "Close", prev: "Previous photo", next: "Next photo" };
 
     var lb = document.createElement("div");
     lb.className = "lightbox";
