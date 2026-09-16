@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<script>
+  // Adres met .html (bijv. /about.html of /index.html) doorsturen naar de korte vorm (/about of /).
+  // Alleen op een webserver: een lokaal geopend bestand (file://) heeft geen korte adressen.
+  if (/^https?:$/.test(location.protocol) && /\.html$/.test(location.pathname)) {
+    location.replace(location.pathname.replace(/\/index\.html$/, "/").replace(/\.html$/, "") + location.search + location.hash);
+  }
+</script>
 <title>About the villa | Villa Sol y Viento</title>
 <meta name="description" content="Three private levels, eight bedrooms, a heated saltwater pool and a jacuzzi with sea views. A full look at the layout and facilities of Villa Sol y Viento."/>
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/>

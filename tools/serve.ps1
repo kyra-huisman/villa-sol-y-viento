@@ -1,17 +1,25 @@
 <#
   Eenvoudige lokale webserver om de site in de browser te bekijken vóór het
-  publiceren. Nodig omdat browsers (en de Claude in Chrome-plugin) een echte
-  http://-URL willen; file:// werkt niet betrouwbaar.
+  publiceren. Zo werkt alles precies zoals live: korte adressen (/about),
+  doorsturen van .html-adressen en het menu.
 
-  Gebruik:   powershell -File tools\serve.ps1
-  Daarna:    http://localhost:8080/
-  Stoppen:   Ctrl+C, of het venster sluiten
+  Makkelijkst:  dubbelklik op "Website lokaal bekijken.cmd" in de projectmap.
+                Dat start deze server en opent de site in je browser.
+
+  Handmatig:    powershell -File tools\serve.ps1          (alleen de server)
+                powershell -File tools\serve.ps1 -Open    (server + browser)
+  Daarna:       http://localhost:8080/
+  Stoppen:      het venster sluiten, of Ctrl+C
 #>
 
-param([int]$Port = 8080)
+param(
+  [int]$Port = 8080,
+  [switch]$Open
+)
 
 $ErrorActionPreference = "Stop"
 $root = Split-Path -Parent $PSScriptRoot
+$url  = "http://localhost:$Port/"
 
 $mime = @{
   ".html"="text/html; charset=utf-8"; ".css"="text/css; charset=utf-8"
@@ -23,9 +31,29 @@ $mime = @{
 }
 
 $listener = New-Object System.Net.HttpListener
-$listener.Prefixes.Add("http://localhost:$Port/")
-$listener.Start()
-Write-Output "Serveert $root op http://localhost:$Port/  (Ctrl+C om te stoppen)"
+$listener.Prefixes.Add($url)
+try {
+  $listener.Start()
+} catch {
+  # Draait er al een testserver op deze poort (bijvoorbeeld een venster dat nog
+  # open staat)? Open dan gewoon de site, in plaats van te stoppen met een fout.
+  $running = $false
+  try {
+    $req = [System.Net.WebRequest]::Create($url)
+    $req.Proxy = $null
+    $req.Timeout = 3000
+    $req.GetResponse().Close()
+    $running = $true
+  } catch { }
+  if (-not $running) { throw }
+  Write-Output "Er draait al een testserver op $url"
+  if ($Open) { Start-Process $url }
+  exit 0
+}
+
+Write-Output "Serveert $root op $url"
+Write-Output "Laat dit venster open zolang je de site bekijkt. Sluiten = server stoppen."
+if ($Open) { Start-Process $url }
 
 try {
   while ($listener.IsListening) {
@@ -53,18 +81,25 @@ try {
     # en wachtende keep-alive-sockets laten de pagina onnodig lang leeg staan.
     $ctx.Response.KeepAlive = $false
 
-    if (Test-Path $full -PathType Leaf) {
-      $ext = [System.IO.Path]::GetExtension($full).ToLower()
-      $ctx.Response.ContentType = if ($mime.ContainsKey($ext)) { $mime[$ext] } else { "application/octet-stream" }
-      $bytes = [System.IO.File]::ReadAllBytes($full)
-      $ctx.Response.ContentLength64 = $bytes.Length
-      $ctx.Response.OutputStream.Write($bytes, 0, $bytes.Length)
-    } else {
-      $ctx.Response.StatusCode = 404
-      $msg = [Text.Encoding]::UTF8.GetBytes("404 - niet gevonden: $rel")
-      $ctx.Response.OutputStream.Write($msg, 0, $msg.Length)
+    try {
+      if (Test-Path $full -PathType Leaf) {
+        $ext = [System.IO.Path]::GetExtension($full).ToLower()
+        $ctx.Response.ContentType = if ($mime.ContainsKey($ext)) { $mime[$ext] } else { "application/octet-stream" }
+        $bytes = [System.IO.File]::ReadAllBytes($full)
+        $ctx.Response.ContentLength64 = $bytes.Length
+        $ctx.Response.OutputStream.Write($bytes, 0, $bytes.Length)
+      } else {
+        $ctx.Response.StatusCode = 404
+        $msg = [Text.Encoding]::UTF8.GetBytes("404 - niet gevonden: $rel")
+        $ctx.Response.OutputStream.Write($msg, 0, $msg.Length)
+      }
+      $ctx.Response.Close()
+    } catch [System.Net.HttpListenerException] {
+      # De browser heeft het verzoek halverwege afgebroken, bijvoorbeeld omdat de
+      # pagina doorstuurt naar een ander adres. Negeren en doorgaan, anders stopt
+      # de hele server.
+      try { $ctx.Response.Abort() } catch { }
     }
-    $ctx.Response.Close()
   }
 } finally {
   $listener.Stop()

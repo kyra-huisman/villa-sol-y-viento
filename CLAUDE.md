@@ -29,8 +29,10 @@ Zo is eerder ontdekt dat de fotopagina 40 MB downloadde.
 ## Structuur
 
 ```
-index.html  about.html  pictures.html  book.html     de vier pagina's (Engels)
+index.html  about.html  pictures.html                de vijf pagina's (Engels)
+about-us.html  book.html
 style.css  script.js                                 gedeeld door alle pagina's
+Website lokaal bekijken.cmd                          dubbelklik: site lokaal openen
 images/<categorie>/                                  originele foto's (~2200px)
 images/thumbs/<categorie>/                           thumbnails (~700px)
 tools/                                               onderhoudsscripts
@@ -42,12 +44,30 @@ voeg geen tweede taal toe zonder overleg.
 ## Adressen zonder .html
 
 Links, canonicals en de sitemap gebruiken de korte vorm: `/`, `/about`,
-`/pictures`, `/book` — nooit `about.html`. GitHub Pages serveert `about.html`
-vanzelf op `/about`; `tools/serve.ps1` doet lokaal hetzelfde, zodat je test wat
-er live gebeurt. Schrijf interne links dus als `href="/about"`.
+`/pictures`, `/about-us`, `/book` — nooit `about.html`. GitHub Pages serveert
+`about.html` vanzelf op `/about`; `tools/serve.ps1` doet lokaal hetzelfde, zodat
+je test wat er live gebeurt. Schrijf interne links dus als `href="/about"`.
 
-Gevolg: navigeren werkt niet meer via `file:///…`, want daar bestaat `/about`
-niet. **Bekijk de site lokaal via `tools\serve.ps1`**, niet via file://.
+De `.html`-bestanden zelf kunnen niet weg: `/about` werkt alléén doordat
+`about.html` bestaat. Daardoor blijft `/about.html` ook bereikbaar. Een klein
+script bovenin de `<head>` van elke pagina stuurt zo'n adres op een webserver
+direct door naar de korte vorm (`/about.html` → `/about`, `/index.html` → `/`).
+**Neem dat script over in elke nieuwe pagina.** Omzetten naar mappen
+(`about/index.html`) lost het niet op: dan werkt `/about/index.html` nog steeds
+en krijgen alle adressen een slash op het eind.
+
+## Lokaal bekijken
+
+De gebruiker bekijkt de site vóór publicatie zelf door te dubbelklikken op
+**`Website lokaal bekijken.cmd`** in de projectmap. Dat start `tools\serve.ps1`
+en opent http://localhost:8080/ in de browser; draait de server al, dan opent
+het alleen de browser. Het bestand staat in de `exclude`-lijst van `_config.yml`.
+
+Dubbelklikken op een losse pagina (file://) werkt ook. Het doorstuurscript slaat
+file:// over (anders stuurt het door naar een bestand dat niet bestaat), en
+`script.js` laat de interne links daar naar de bestanden wijzen (`/about` →
+`about.html`). Test voor publicatie toch via de server: alleen die werkt
+precies zoals de live site.
 
 ## Foto's
 

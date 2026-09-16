@@ -4,10 +4,27 @@ document.addEventListener("DOMContentLoaded", function () {
     el.textContent = year;
   });
 
+  initLocalFileLinks();
   initNavToggle();
   initRandomOrder();
   initFilters();
   initLightbox();
+
+  // Lokaal geopend als bestand (file://, bijv. door te dubbelklikken op
+  // pictures.html)? Dan bestaan korte adressen als /about niet. Laat de interne
+  // links dan naar de bestanden zelf wijzen (about.html), zodat het menu werkt.
+  // Op de echte site (http/https) verandert er niets.
+  function initLocalFileLinks() {
+    if (location.protocol !== "file:") return;
+    document.querySelectorAll('a[href^="/"]').forEach(function (a) {
+      var href = a.getAttribute("href");
+      if (href.indexOf("//") === 0) return;
+      var cut = href.search(/[?#]/);
+      var path = cut === -1 ? href : href.slice(0, cut);
+      var rest = cut === -1 ? "" : href.slice(cut);
+      a.setAttribute("href", (path === "/" ? "index" : path.slice(1)) + ".html" + rest);
+    });
+  }
 
   function initNavToggle() {
     var toggle = document.querySelector(".nav-toggle");

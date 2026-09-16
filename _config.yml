@@ -12,6 +12,7 @@ exclude:
   - CLAUDE.md          # projectinstructies voor Claude — niet voor bezoekers
   - README.md
   - tools/             # onderhoudsscripts (PowerShell)
+  - "Website lokaal bekijken.cmd"   # start de lokale testserver — niet voor bezoekers
   - .gitignore
   # Jekyll-standaarden, hier herhaald omdat 'exclude' de defaults vervangt
   - Gemfile
