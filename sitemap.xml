@@ -20,6 +20,12 @@
   </url>
 
   <url>
+    <loc>https://villasolyviento.com/about-us</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
     <loc>https://villasolyviento.com/book</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
