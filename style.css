@@ -633,6 +633,23 @@ p:last-child{ margin-bottom: 0; }
   border-top: 1px solid var(--line);
 }
 
+/* Official registration numbers (About page) */
+.registration{ margin-top: 40px; }
+.registration dl{
+  display:grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 48px;
+  margin: 4px 0 0;
+}
+.registration dt{ font-size: 0.85rem; color: var(--muted); }
+.registration dd{
+  margin: 0;
+  font-weight: 600;
+  /* Het landelijke nummer is één lange reeks zonder spaties: laat het op
+     smalle schermen afbreken in plaats van buiten beeld te lopen */
+  overflow-wrap: anywhere;
+}
+
 /* Location strip */
 .location-strip{
   display:grid;
@@ -887,4 +904,5 @@ p:last-child{ margin-bottom: 0; }
   .facility-groups{ grid-template-columns: 1fr; }
   .location-strip{ grid-template-columns: 1fr; }
   .lightbox img{ max-height: 72vh; }
+  .registration dl{ grid-template-columns: 1fr; }
 }
